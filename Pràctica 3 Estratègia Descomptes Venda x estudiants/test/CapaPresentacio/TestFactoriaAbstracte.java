@@ -15,10 +15,15 @@ public class TestFactoriaAbstracte {
 	@BeforeClass
 	public static void TestVenda() {
 		resultatEsperat = new HashSet <Float> ();
-        //Suposem que el mètode getTotalAbansDte() de la classe Venda retorna 80.5
-        resultatEsperat.add(76.475F);//resultat esperat pel descompte del percentatge 0.05
+        //Suposem que el metode getTotalAbansDte() de la classe Venda retorna 80.5
+		resultatEsperat.add(80.5F);//resultat esperat pel descompte null
+        
         resultatEsperat.add(78.00F);//resultat esperat pel descompte absolut
-        resultatEsperat.add(80.5F);//resultat esperat pel descompte null
+        
+        resultatEsperat.add(76.475F);//resultat esperat pel descompte del percentatge 0.05
+        resultatEsperat.add(79.695F);//resultat esperat pel descompte del percentatge 0.01
+        resultatEsperat.add(72.45F);//resultat esperat pel descompte del percentatge 0.10
+        
 	}	
 	
 	@Test
@@ -28,7 +33,7 @@ public class TestFactoriaAbstracte {
 	        float totalVenda = ctl.getTotalVenda ();
 	        System.out.println ("Import Total de la venda: " + totalVenda);
 	        System.out.println(ctl.getDescompte());
-	        assertTrue ("El resultat obtingut és: " + totalVenda, resultatEsperat.contains(totalVenda));
+	        assertTrue ("El resultat obtingut es: " + totalVenda, resultatEsperat.contains(totalVenda));
 		} catch (Exception ex) {
 			System.out.println ("ERROR Registre.getTotalVenda(): " + ex.getMessage());
 		}		
